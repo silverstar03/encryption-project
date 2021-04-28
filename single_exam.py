@@ -24,14 +24,14 @@ for i in range(last):
     else:
         list.append(a[i])
 print(a)
-print(list)
+print(list) #암호판
 
 list2 = []
 # 평문 배열에 넣기
 for i in plain:
    list2.append(i)
 
-print(list2)
+print(list2) #평문
 
 # 암호문 들어가기
 list3 = []
@@ -42,5 +42,5 @@ for i in list2:
     else:
         list3.append(i)
 
-print(list3)
+print(list3) #암호문
 
