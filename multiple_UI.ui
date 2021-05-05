@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>868</width>
     <height>629</height>
    </rect>
   </property>
@@ -17,8 +17,8 @@
    <widget class="QLineEdit" name="key_edit">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>170</y>
+      <x>150</x>
+      <y>130</y>
       <width>331</width>
       <height>41</height>
      </rect>
@@ -27,11 +27,11 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="cipher_edit">
+   <widget class="QLineEdit" name="multiple_cipher_edit">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>400</y>
+      <x>150</x>
+      <y>350</y>
       <width>331</width>
       <height>41</height>
      </rect>
@@ -43,8 +43,8 @@
    <widget class="QLabel" name="plainlbl">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>240</y>
+      <x>30</x>
+      <y>200</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -62,8 +62,8 @@
    <widget class="QLineEdit" name="decrypt_edit">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>470</y>
+      <x>150</x>
+      <y>490</y>
       <width>331</width>
       <height>41</height>
      </rect>
@@ -75,8 +75,8 @@
    <widget class="QPushButton" name="decryptBtn">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>310</y>
+      <x>320</x>
+      <y>270</y>
       <width>161</width>
       <height>61</height>
      </rect>
@@ -94,8 +94,8 @@
    <widget class="QLineEdit" name="plain_edit">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>230</y>
+      <x>150</x>
+      <y>190</y>
       <width>331</width>
       <height>41</height>
      </rect>
@@ -107,8 +107,8 @@
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>60</y>
+      <x>40</x>
+      <y>20</y>
       <width>381</width>
       <height>91</height>
      </rect>
@@ -126,12 +126,12 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="cipherlbl">
+   <widget class="QLabel" name="multiple_cipherlbl">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>400</y>
-      <width>91</width>
+      <x>20</x>
+      <y>360</y>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -142,14 +142,14 @@
      </font>
     </property>
     <property name="text">
-     <string>암호문</string>
+     <string>쌍자 암호</string>
     </property>
    </widget>
    <widget class="QLabel" name="keylbl">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>180</y>
+      <x>20</x>
+      <y>140</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -167,8 +167,8 @@
    <widget class="QLabel" name="decryptlbl">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>480</y>
+      <x>20</x>
+      <y>500</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -186,8 +186,8 @@
    <widget class="QPushButton" name="encryptBtn">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>310</y>
+      <x>150</x>
+      <y>270</y>
       <width>161</width>
       <height>61</height>
      </rect>
@@ -202,13 +202,55 @@
      <string>암호문</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="cipher_edit">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>400</y>
+      <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cipherlbl">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>410</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>배달의민족 주아</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>암호문</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>130</y>
+      <width>341</width>
+      <height>251</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>868</width>
      <height>25</height>
     </rect>
    </property>
