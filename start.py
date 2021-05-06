@@ -93,6 +93,129 @@ class StartClass(QMainWindow, main_ui):
     def multiple_clicked(self):
         self.main_ui = uic.loadUi("multiple_UI.ui", self)
         # self.backBtn.clicked.connect(self.multiBack_clicked)
+        self.encryptBtn.clicked.connect(self.multiplechangeTextFunction)
+        self.decryptBtn.clicked.connect(self.multiplereturnTextFunction)
+
+    def multiplechangeTextFunction(self):
+
+        self.a2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        self.key2 = self.key_edit2.text() #암호키 받아오기
+        self.plain2 = self.plain_edit2.text()  #평문 받아오기
+
+        # 암호키 중복 제거 후 배열에 넣기
+        self.result2 = "".join(OrderedDict.fromkeys(self.key2))
+
+        self.key_list2 = []
+        for i in self.result2:
+            self.key_list2.append(i)
+
+        print(self.key_list2)
+
+        # z입력하면 q로 바꾸어 처리하기
+        for i in range(len(self.key_list2)):
+            if self.key_list2[i] == 'z':
+                self.key_list2[i] = 'q'
+
+        print(self.key_list2)
+
+        # 암호판 만들기
+        for i in range(len(self.a2)):
+            if self.a2[i] in self.key_list2:
+                continue
+            else:
+                self.key_list2.append(self.a2[i])
+        print(self.a2)
+        print(self.key_list2)  # 암호판
+
+        # 2차원 배열 암호판 만들기
+        self.list_2d = [[0 for col in range(5)] for row in range(5)]
+        self.cnt = 0
+        for i in range(len(self.list_2d)):
+            for j in range(len(self.list_2d[i])):
+                self.list_2d[i][j] = self.key_list2[self.cnt]
+                self.cnt += 1
+
+        print(self.list_2d)  # 2차원 배열 암호판
+
+
+        # 평문 공백 제거
+        self.plain2 = self.plain2.replace(" ", "")
+        print(self.plain2)
+
+        # x가 필요한 위치에 x 넣기
+        self.x_add_list = []
+        flag = 1
+
+        self.x_add_list.append(self.plain2[0])
+        for i in range(1, len(self.plain2)):
+            if self.plain2[i - 1] != self.plain2[i]:
+                self.x_add_list.append(self.plain2[i])
+            elif self.plain2[i - 1] == self.plain2[i] and i % 2 == flag:
+                self.x_add_list.append('x')
+                self.x_add_list.append(self.plain2[i])
+                flag = (1 + flag) % 2
+            else:
+                self.x_add_list.append(self.plain2[i])
+        if len(self.x_add_list) % 2 == 1:
+            self.x_add_list.append('x')
+
+        print(self.x_add_list)
+
+        self.x_add_str = ''.join(self.x_add_list)
+        print(self.x_add_str)
+
+        # 문자열 두칸씩 나누기
+        self.list4 = []
+        for i in range(0, len(self.x_add_str), 2):
+            self.list4.append(self.x_add_str[i:i + 2])
+        self.x_add_str2 = " ".join(self.list4)
+        print(self.x_add_str2)
+
+        #암호문 만들기
+
+        self.x1 = 0
+        self.x2 = 0
+        self.y1 = 0
+        self.y2 = 0
+        self.encArr = []
+        self.encResult = ""
+
+        for i in range(len(self.list4)):
+            temp = [0, 0]
+
+            for j in range(len(self.list_2d)):
+                for k in range(len(self.list_2d[j])):
+                    if self.list_2d[j][k] == self.list4[i][0]:
+                        self.x1 = j
+                        self.y1 = k
+                    if self.list_2d[j][k] == self.list4[i][1]:
+                        self.x2 = j
+                        self.y2 = k
+
+            # 행이 같은 경우
+            if self.x1 == self.x2:
+                temp[0] = self.list_2d[self.x1][(self.y1 + 1) % 5]
+                temp[1] = self.list_2d[self.x2][(self.y2 + 1) % 5]
+            # 열이 같은 경우
+            elif self.y1 == self.y2:
+                temp[0] = self.list_2d[(self.x1 + 1) % 5][self.y1]
+                temp[1] = self.list_2d[(self.x1 + 1) % 5][self.y2]
+            # 행과 열이 모두 다른 경우
+            else:
+                temp[0] = self.list_2d[self.x2][self.y1]
+                temp[1] = self.list_2d[self.x1][self.y2]
+
+            self.encArr.append(temp)
+
+        for i in range(len(self.encArr)):
+            self.encResult += self.encArr[i][0] + self.encArr[i][1] + " "
+        print(self.encResult)
+
+        self.multiple_cipher_edit.setText(self.x_add_str2)
+        self.cipher_edit.setText(self.encResult)
+
+    def multiplereturnTextFunction(self):
+        self.decrypt_edit.setText(self.plain2)
 
 
 
