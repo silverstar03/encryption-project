@@ -139,23 +139,23 @@ class StartClass(QMainWindow, main_ui):
 
 
         # 평문 공백 제거
-        self.plain2 = self.plain2.replace(" ", "")
-        print(self.plain2)
+        self.plain3 = self.plain2.replace(" ", "")
+        print(self.plain3)
 
         # x가 필요한 위치에 x 넣기
         self.x_add_list = []
         flag = 1
 
-        self.x_add_list.append(self.plain2[0])
-        for i in range(1, len(self.plain2)):
-            if self.plain2[i - 1] != self.plain2[i]:
-                self.x_add_list.append(self.plain2[i])
-            elif self.plain2[i - 1] == self.plain2[i] and i % 2 == flag:
+        self.x_add_list.append(self.plain3[0])
+        for i in range(1, len(self.plain3)):
+            if self.plain3[i - 1] != self.plain3[i]:
+                self.x_add_list.append(self.plain3[i])
+            elif self.plain3[i - 1] == self.plain3[i] and i % 2 == flag:
                 self.x_add_list.append('x')
-                self.x_add_list.append(self.plain2[i])
+                self.x_add_list.append(self.plain3[i])
                 flag = (1 + flag) % 2
             else:
-                self.x_add_list.append(self.plain2[i])
+                self.x_add_list.append(self.plain3[i])
         if len(self.x_add_list) % 2 == 1:
             self.x_add_list.append('x')
 
@@ -216,8 +216,6 @@ class StartClass(QMainWindow, main_ui):
 
     def multiplereturnTextFunction(self):
         self.decrypt_edit.setText(self.plain2)
-
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
